@@ -2,7 +2,11 @@ FactoryBot.define do
   
   # TODO: fill in factory blueprint for children
   factory :child do
+    first_name "Alex"
+    last_name "Heimann"
+    active true
   end
+
 
   # factory blueprint for tasks
   factory :task do
