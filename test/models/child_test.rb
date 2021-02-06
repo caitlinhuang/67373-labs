@@ -29,6 +29,17 @@ class ChildTest < ActiveSupport::TestCase
     should "have a scope to select only active children" do
       assert_equal ["Alex", "Mark"], Child.active.alphabetical.map{|c| c.first_name}
     end
+
+    should "have a method for calculating points earned" do
+      create_tasks
+      create_chores
+      assert_equal 4, @alex.points_earned
+      assert_equal 1, @mark.points_earned
+      assert_equal 0, @rachel.points_earned
+      destroy_chores
+      destroy_tasks
+      
+    end
   end
 
 end
